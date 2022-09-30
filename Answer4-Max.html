@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function maxProduct(nums) {
+      let indexA = nums[0];
+      let indexB = nums[1];
+      let indexC = nums[3];
+      let result = [];
+      for (let i = 0; i < nums.length; i++)
+        nums.forEach((num1) => {
+          if (num1 !== indexA) {
+            result[result.length] = indexA * num1;
+          }
+        });
+      if (nums.length > 2) {
+        // if nums.length > 2 not add more
+        nums.forEach((num2) => {
+          if (num2 !== indexB && indexA) {
+            result[result.length] = indexB * num2;
+          }
+        });
+
+        nums.forEach((num3) => {
+          if (num3 !== indexB && indexA && indexC) {
+            result[result.length] = indexC * num3;
+          }
+        });
+      }
+      /*  console.log(result); */
+
+      let max = result[0];
+      for (let i = 0; i < result.length; i++) {
+        if (result[i] > max) {
+          max = result[i];
+        }
+      }
+      console.log(max);
+    }
+
+    maxProduct([5, 20, 2, 6]); // 得到 120
+    maxProduct([10, -20, 0, 3]); // 得到 30
+    maxProduct([10, -20, 0, -3]); // 得到 60
+    maxProduct([-1, 2]); // 得到 -2
+    maxProduct([-1, 0, 2]); // 得到 0 或 -0
+    maxProduct([5, -1, -2, 0]); // 得到 2
+    maxProduct([-5, -2]); // 得到 10
+  </script>
+</html>
