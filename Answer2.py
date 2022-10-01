@@ -18,9 +18,7 @@ def avg(data):
             flag +=1
 
     return average_salary/flag
-      
-    
-    
+         
 
 # 請用你的程式補完這個函式的區塊
 res=avg({
